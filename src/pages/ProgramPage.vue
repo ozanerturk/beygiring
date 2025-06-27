@@ -4,6 +4,7 @@
             <div class="header">
                 <div class="header-button-group">
                     <input type="button" v-on:click="store.commit('program/generateProgram')"
+                    :disabled="isRunning"
                         value="Generate New Program"></input>
                     <input type="button" v-on:click="store.commit('program/toggleRace')" value="Start/Stop"></input>
                 </div>
@@ -26,11 +27,15 @@ import { RootState } from '@/store/types';
 import { useStore } from 'vuex';
 
 const store = useStore<RootState>();
+
+
 onMounted(() => {
     store.commit("program/init");
     store.commit('program/generateProgram')
 })
-
+const isRunning = computed(() => {
+    return store.getters['program/isRunning'];
+})
 </script>
 
 <style scoped>
@@ -88,4 +93,20 @@ onMounted(() => {
     /* Fills remaining height in .middle */
     /* Scrolls when content overflows */
 }
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
+    .left-side, .right-side {
+        width: 100%;
+        border: none;
+    }
+    .content-body {
+        min-height: 100vh;
+    }
+   
+}
+
+
 </style>

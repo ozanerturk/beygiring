@@ -7,19 +7,19 @@
             <div class="horse-container">
                 <div class="horse-runway" v-for="(horse,place) in race.horse_progress.keys()" :key="horse">
                     <div class="place-tag">
-                        <span>{{ place+1 }}
-
+                        <span>
+                            {{ place+1 }}
+                            {{race.horse_progress.get(horse) >= race.distance ? '🏁' : ''}}
                         </span>
                     </div>
                     <RacingHorse class="running-horse" :name="horse" :color="getColor(horse)"
                         :speed="calculate_speed(race,horse)" v-bind:style="{'left':calculate_left(race,horse)}">
-
                     </RacingHorse>
                 </div>
+                <div class="finish-tag">Finish</div>
             </div>
 
         </div>
-        <div v-else>Click to start</div>
     </div>
 
 
@@ -110,6 +110,15 @@ watch(isRunning, (newValue) => {
     font-size: 2em;
 }
 
+.finish-tag {
+    position: absolute;
+    right: 0px;
+    border-bottom: 1px solid rgb(199, 122, 122);;
+    width: 100px;
+    text-align: center;
+    top: -18px;
+}
+
 .running-horse {
     position: absolute;
     align-self: anchor-center;
@@ -118,9 +127,11 @@ watch(isRunning, (newValue) => {
 }
 
 .horse-container {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
+    
 }
 
 .place-tag span {
@@ -133,27 +144,29 @@ watch(isRunning, (newValue) => {
     align-items: center;
     width: 60px;
     height: 100%;
-    background-color: red;
+    background-color: rgb(157, 199, 122);
 }
 
 .horse-runway {
     flex: 1;
     position: relative;
-    width: calc(100% - 100px);
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    width: calc(100% - 80px);
+    border-bottom: 1px dashed black;
+    border-right: 1px solid rgb(199, 122, 122);
+    background-color: rgb(156, 129, 106);
+
 }
 
 .horse-runway:first-child {
-    border-top: 1px solid black;
+    border-top: 1px dashed black;
 
 }
 
 .race {
-    background-color: green;
     flex: 1;
     height: 100%;
-    padding: 20px;
+    padding: 0px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
 }

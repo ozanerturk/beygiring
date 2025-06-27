@@ -68,7 +68,11 @@ export const program: Module<ProgramState, RootState> = {
 
 			if (raceComplete) {
 				if (state.activeRaceIndex + 1 < state.races.length) {
-					state.activeRaceIndex += 1;
+					state.running = false;
+					setTimeout(() => {
+						state.activeRaceIndex += 1;
+						state.running = true;
+					}, 1000);
 				} else {
 					//complete program
 					state.completed = true;
