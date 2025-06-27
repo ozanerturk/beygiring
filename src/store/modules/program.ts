@@ -47,6 +47,7 @@ export const program: Module<ProgramState, RootState> = {
 		},
 
 		toggleRace(state) {
+			if (state.completed) return;
 			if (state.running) {
 				state.running = false;
 			} else {
@@ -68,11 +69,8 @@ export const program: Module<ProgramState, RootState> = {
 
 			if (raceComplete) {
 				if (state.activeRaceIndex + 1 < state.races.length) {
-					state.running = false;
-					setTimeout(() => {
-						state.activeRaceIndex += 1;
-						state.running = true;
-					}, 1000);
+					state.activeRaceIndex += 1;
+					state.running = true;
 				} else {
 					//complete program
 					state.completed = true;

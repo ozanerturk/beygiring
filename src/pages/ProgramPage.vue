@@ -6,7 +6,9 @@
                     <input type="button" v-on:click="store.commit('program/generateProgram')"
                     :disabled="isRunning"
                         value="Generate New Program"></input>
-                    <input type="button" v-on:click="store.commit('program/toggleRace')" value="Start/Stop"></input>
+                    <input type="button" 
+                    :disabled="isComplete"
+                    v-on:click="store.commit('program/toggleRace')" value="Start/Stop"></input>
                 </div>
             </div>
             <div class="content">
@@ -36,6 +38,9 @@ onMounted(() => {
 const isRunning = computed(() => {
     return store.getters['program/isRunning'];
 })
+const isComplete = computed(() => {
+    return store.getters['program/isCompleted'];
+})
 </script>
 
 <style scoped>
@@ -60,14 +65,13 @@ const isRunning = computed(() => {
 .page {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     flex:1;
     height: 100%;
     /* Fills remaining height in .outer */
 }
 
 .header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(109, 109, 109);;
 }
 
 .content {
@@ -82,12 +86,12 @@ const isRunning = computed(() => {
 }
 
 .left-side {
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(109, 109, 109);
     width: 300px;
 }
 
 .right-side {
-    border-left: 1px solid black;
+    border-left: 1px solid rgb(109, 109, 109);;
     width: 500px;
     height: 100%;
     /* Fills remaining height in .middle */

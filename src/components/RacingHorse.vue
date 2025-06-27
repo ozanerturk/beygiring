@@ -32,12 +32,12 @@ const horseStyle = computed(() => {
 }
 
 .name-tag {
-    display:flex;
+    display: flex;
     position: absolute;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
-    font-size:12px;
+    font-size: 12px;
 }
 
 .wrapper {

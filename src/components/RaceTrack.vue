@@ -53,7 +53,7 @@ function calculate_speed(race,horseName) {
     if(isRunning.value === false) return 0
     const progress = race.horse_progress.get(horseName);
     if (progress >= race.distance) return 0
-    return store.getters["program/horses"].get(horseName).condition/1000+4
+    return store.getters["program/horses"].get(horseName).condition/50+3
 }
 function calculate_left(race, horseName) {
     const progress = race.horse_progress.get(horseName);
@@ -114,7 +114,7 @@ watch(isRunning, (newValue) => {
     position: absolute;
     right: 0px;
     border-bottom: 1px solid rgb(199, 122, 122);;
-    width: 100px;
+    width: 80px;
     text-align: center;
     top: -18px;
 }
@@ -151,21 +151,21 @@ watch(isRunning, (newValue) => {
     flex: 1;
     position: relative;
     width: calc(100% - 80px);
-    border-bottom: 1px dashed black;
+    border-bottom: 1px dashed rgb(109, 109, 109);;
     border-right: 1px solid rgb(199, 122, 122);
     background-color: rgb(156, 129, 106);
 
 }
 
 .horse-runway:first-child {
-    border-top: 1px dashed black;
+    border-top: 1px dashed rgb(109, 109, 109);;
 
 }
 
 .race {
     flex: 1;
     height: 100%;
-    padding: 0px;
+    padding-left: 20px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;

@@ -9,3 +9,8 @@ defineProps<{
   size: number;
 }>();
 </script>
+<style scoped>
+  svg{
+    outline: 0.01px solid rgb(41, 41, 41);
+  }
+</style>

@@ -15,7 +15,7 @@
             <tbody>
                 <tr v-for="horse in horses" :key="horse.name">
                     <td>
-                        <IconSquare :size="12" style="border:1px solid black" v-bind:style="{'color':horse.color}"></IconSquare> {{horse.name}}
+                        <IconSquare :size="12" v-bind:style="{'color':horse.color}"></IconSquare> {{horse.name}}
                     </td>
                     <td>{{horse.color}}</td>
                     <td>{{horse.condition}}</td>
