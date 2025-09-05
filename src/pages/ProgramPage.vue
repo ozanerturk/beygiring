@@ -33,6 +33,7 @@ const store = useStore<RootState>();
 
 onMounted(() => {
     store.commit("program/init");
+
     store.commit('program/generateProgram')
 })
 const isRunning = computed(() => {
@@ -46,7 +47,7 @@ const isComplete = computed(() => {
 <style scoped>
 .header-button-group {
     padding: 10px;
-    gap: 4px;
+    gap: 5px;
 
     display: flex;
     align-self: flex-end;
