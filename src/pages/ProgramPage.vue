@@ -11,6 +11,7 @@
                     v-on:click="store.commit('program/toggleRace')" value="Start/Stop"></input>
                 </div>
             </div>
+            
             <div class="content">
 
                 <RaceTrack class="content-body"></RaceTrack>
