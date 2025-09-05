@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="content">
-                <HorseList class="left-side"></HorseList>
+
                 <RaceTrack class="content-body"></RaceTrack>
                 <RaceProgram class="right-side"></RaceProgram>
             </div>
