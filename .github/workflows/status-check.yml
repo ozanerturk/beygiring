@@ -1,14 +1,14 @@
-# .github/workflows/ci.yml
-name: CI
+# .github/workflows/dummy-check.yml
+name: Status Check
 
 on:
   pull_request:
-    branches: [ dev ]
+    branches:
+      - dev
 
 jobs:
-  build:
+  dummy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run checks
-        run: echo "CI passed"
+      - name: Pass status check
+        run: echo "Status check passed ✅"
