@@ -49,7 +49,7 @@ const isComplete = computed(() => {
 <style scoped>
 .header-button-group {
     padding: 10px;
-    gap: 5px;
+    gap: 6px;
 
     display: flex;
     align-self: flex-end;
