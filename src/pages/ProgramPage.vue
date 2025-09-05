@@ -38,9 +38,10 @@ onMounted(() => {
     store.commit('program/generateProgram')
 })
 const isRunning = computed(() => {
-    return store.getters['program/isRunning'];
+    return store.getters['program/isRunning' ];
 })
 const isComplete = computed(() => {
+     
     return store.getters['program/isCompleted'];
 })
 </script>
